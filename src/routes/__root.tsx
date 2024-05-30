@@ -1,9 +1,8 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { Suspense } from "react";
 
-// import { TanStackQueryDevtools } from "../components/TanStackQueryDevTools";
-// import { TanStackRouterDevtools } from "../components/TanstackRouterDevTools";
-
+import { TanStackQueryDevtools } from "../components/devtools/TanstackQueryDevtools";
+import { TanStackRouterDevtools } from "../components/devtools/TanstackRouterDevTools";
 
 export const Route = createRootRoute({
   component: () => (
@@ -18,12 +17,12 @@ export const Route = createRootRoute({
       {/*</div>*/}
       {/*<hr />*/}
       <Outlet />
-      {/* <Suspense> */}
-      {/* <TanStackRouterDevtools /> */}
-      {/* </Suspense> */}
-      {/* <Suspense> */}
-      {/* <TanStackQueryDevtools /> */}
-      {/* </Suspense> */}
+      <Suspense>
+        <TanStackRouterDevtools />
+      </Suspense>
+      <Suspense>
+        <TanStackQueryDevtools />
+      </Suspense>
     </div>
   ),
 });
